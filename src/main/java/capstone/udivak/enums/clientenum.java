@@ -1,4 +1,4 @@
 package capstone.udivak.enums;
 
-public class clientenum {
+public enum ClientEnum {
 }

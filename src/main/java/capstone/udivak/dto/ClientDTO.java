@@ -1,6 +1,6 @@
-package capstone.udivak.DTO;
-import jakarta.persistence.OneToOne;
+package capstone.udivak.dto;
 import jakarta.validation.constraints.NotEmpty;
+
 public record ClientDTO (
     @NotEmpty(message = "Nome è obbligatorio ")
     String nome,
@@ -11,4 +11,6 @@ public record ClientDTO (
     @NotEmpty(message = "La password è obbligatorio")
     String password
 ){
+  // Custom constructor
+   
 }

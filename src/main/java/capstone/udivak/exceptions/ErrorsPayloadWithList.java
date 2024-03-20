@@ -1,4 +1,4 @@
-package capstone.udivak.Exceptions;
+package capstone.udivak.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;

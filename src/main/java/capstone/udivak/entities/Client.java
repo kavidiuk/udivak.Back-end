@@ -1,66 +1,59 @@
-package capstone.udivak.Entities;
+package capstone.udivak.entities;
 
-import ch.qos.logback.core.net.server.Client;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.UUID;
 
 @Getter
 @Setter
-//@AllArgsConstructor
+@AllArgsConstructor
 @Entity
 @NoArgsConstructor
 @Table(name="clients")
-public class client {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
-    private UUID id;
+    private int id;
 
-    @Setter
     @Column(name = "nome",nullable = false)
     private String nome;
 
-    @Setter
     @Column(name = "cognome",nullable = false)
     private String cognome;
 
-    @Setter
     @Column(name = "email",nullable = false, unique = true)
     private String email;
 
-    @Setter
     @Column(name = "password",nullable = false)
     private String password;
-    public client(UUID id, String nome, String cognome, String email, String password) {
-        this.id = id;
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.password = password;
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 71 * hash + this.id;
+        return hash;
     }
 
-    public UUID getId() {
-        return id;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Client other = (Client) obj;
+        return this.id == other.id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+  
+   
+   
 
     @Override
     public String toString() {

@@ -1,4 +1,4 @@
-package capstone.udivak.Exceptions;
+package capstone.udivak.exceptions;
 
 public class UnauthorizedException extends RuntimeException {
     public UnauthorizedException(String message) {

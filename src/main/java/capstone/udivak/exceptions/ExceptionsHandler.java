@@ -1,14 +1,13 @@
-package capstone.udivak.Exceptions;
+package capstone.udivak.exceptions;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
+//import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestControllerAdvice
 public class ExceptionsHandler {
@@ -31,13 +30,13 @@ public class ExceptionsHandler {
         return new ErrorsPayloads(ex.getMessage(), LocalDateTime.now());
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public ErrorsPayloads handleAccessDenied(AccessDeniedException ex) {
-        ex.printStackTrace();
-
-        return new ErrorsPayloads("Non hai l'accesso a questo endpoint", LocalDateTime.now());
-    }
+//    @ExceptionHandler(AccessDeniedException.class)
+//    @ResponseStatus(HttpStatus.FORBIDDEN)
+//    public ErrorsPayloads handleAccessDenied(AccessDeniedException ex) {
+//        ex.printStackTrace();
+//
+//        return new ErrorsPayloads("Non hai l'accesso a questo endpoint", LocalDateTime.now());
+//    }
 
 
     @ExceptionHandler(NotFoundException.class)
