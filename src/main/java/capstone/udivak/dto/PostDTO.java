@@ -1,9 +1,16 @@
 package capstone.udivak.dto;
 
 import jakarta.validation.constraints.NotEmpty;
+import org.aspectj.bridge.IMessage;
+
+import java.util.Date;
 
 public record PostDTO(
-    @NotEmpty(message = "Inserisci la data obbligatorio")
-    String date
+    @NotEmpty()
+    Date date,
+    @NotEmpty()
+    String post,
+    @NotEmpty()
+    String commenti
 ){
 }
