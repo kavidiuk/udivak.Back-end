@@ -1,7 +1,7 @@
 <<<<<<< Updated upstream
 package capstone.udivak.enums;
 
-public class clientenum {
+public enum ClientEnum {
 }
 =======
 package capstone.udivak.enums;
