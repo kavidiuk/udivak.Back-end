@@ -5,13 +5,13 @@
 package capstone.udivak.service;
 
 import capstone.udivak.dto.ClientDTO;
-import capstone.udivak.entities.Client;
 import capstone.udivak.dtobuilder.ClientDTOBuilder;
-
-import jakarta.annotation.Resource;
-import java.util.List;
-import org.springframework.stereotype.Service;
+import capstone.udivak.entities.Client;
 import capstone.udivak.repository.ClientRepository;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *

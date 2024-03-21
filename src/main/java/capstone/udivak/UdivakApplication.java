@@ -1,6 +1,5 @@
 package capstone.udivak;
 
-import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +9,9 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Date;
 
 @SpringBootApplication
 @Slf4j

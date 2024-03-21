@@ -2,11 +2,11 @@ package capstone.udivak.repository;
 
 
 import capstone.udivak.entities.Client;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.UUID;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.UUID;
 
 @Repository//BEAN SPRING DI TIPO REPOSITORY
 public interface ClientRepository extends JpaRepository<Client, UUID> {

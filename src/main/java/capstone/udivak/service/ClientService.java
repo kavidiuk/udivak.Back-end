@@ -1,6 +1,7 @@
 package capstone.udivak.service;
 
 import capstone.udivak.dto.ClientDTO;
+
 import java.util.List;
 
 public interface ClientService {

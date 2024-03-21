@@ -2,6 +2,7 @@ package capstone.udivak.dtobuilder;
 
 import capstone.udivak.dto.ClientDTO;
 import capstone.udivak.entities.Client;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
