@@ -1,4 +1,4 @@
-package capstone.udivak.Exceptions;
+package capstone.udivak.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
