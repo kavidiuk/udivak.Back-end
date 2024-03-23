@@ -51,6 +51,7 @@ public class JwtAuthenticationController {
     public ResponseEntity<LoginResponse> register(
         @RequestBody RegisterRequest request
     ) {
+
       return ResponseEntity.
               ok(customUserDetailsService.register(request));
     }
