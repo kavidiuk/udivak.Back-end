@@ -1,110 +1,41 @@
-<<<<<<< Updated upstream:src/main/java/capstone/udivak/Entities/client.java
-package capstone.udivak.Entities;
-
-import ch.qos.logback.core.net.server.Client;
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.util.UUID;
-
-@Getter
-@Setter
-//@AllArgsConstructor
-@Entity
-@NoArgsConstructor
-@Table(name="clients")
-public class client {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Setter(AccessLevel.NONE)
-    private UUID id;
-
-    @Setter
-    @Column(name = "nome",nullable = false)
-    private String nome;
-
-    @Setter
-    @Column(name = "cognome",nullable = false)
-    private String cognome;
-
-    @Setter
-    @Column(name = "email",nullable = false, unique = true)
-    private String email;
-
-    @Setter
-    @Column(name = "password",nullable = false)
-    private String password;
-    public client(UUID id, String nome, String cognome, String email, String password) {
-        this.id = id;
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.password = password;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return "client{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-}
-=======
 package capstone.udivak.entities;
 
 import jakarta.persistence.*;
+import java.util.Collection;
 import lombok.*;
-
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@Table(name="clients")
-public class Client {
+@Table(name = "clients")
+public class Client implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Setter(AccessLevel.NONE)
     private int id;
 
-    @Column(name = "nome",nullable = false)
+    @Column(name = "username", nullable = false)
+    private String username;
+
+    @Column(name = "nome", nullable = true)
     private String nome;
 
-    @Column(name = "cognome",nullable = false)
+    @Column(name = "cognome", nullable = true)
     private String cognome;
 
-    @Column(name = "email",nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password",nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Override
     public int hashCode() {
@@ -130,13 +61,47 @@ public class Client {
 
     @Override
     public String toString() {
-        return "client{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "client{"
+                + "id=" + id
+                + ", nome='" + nome + '\''
+                + ", cognome='" + cognome + '\''
+                + ", email='" + email + '\''
+                + ", password='" + password + '\''
+                + '}';
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return role.getAuthorities();
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
->>>>>>> Stashed changes:src/main/java/capstone/udivak/entities/Client.java
