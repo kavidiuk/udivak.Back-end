@@ -12,6 +12,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
@@ -52,7 +53,7 @@ public class UdivakApplication implements ApplicationListener
     }
 
     //METODO ESEGUITO OGNI 300000ms QUINDI OGNI 5 MINUTI
-    //@Scheduled(fixedRate = 30000)
+    @Scheduled(fixedRate = 50000)
     public void reportCurrentTime() {
         log.info("The time is now {}" + new Date());
     }
